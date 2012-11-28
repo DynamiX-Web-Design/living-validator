@@ -1,5 +1,7 @@
 #LivingValidator gem
 
+## `gem install living-validator`
+
 This gem is designed to integrate with the http://validator.nu service. It will work with the public instance or a private instance. The source for the validator is available here: [BitBucket Repo](https://bitbucket.org/validator/build/src). 
 
 The functionality here is pretty basic. You may query the validator, receive a response, and go through the messages it gives you. There are convenience methods for getting only the error messages, getting the total number of error messages, or getting the total number of messages.

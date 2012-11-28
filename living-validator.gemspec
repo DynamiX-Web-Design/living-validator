@@ -11,11 +11,11 @@ Gem::Specification.new do |gem|
   gem.license		= "Creative Commons Attribution-ShareAlike 3.0 Unported"
   gem.description   = %q{A simple suite for querying the validator.nu service (or your own instance).}
   gem.summary       = %q{A simple suite for querying the validator.nu service (or your own instance).}
-  gem.homepage      = ""
+  gem.homepage      = "https://bitbucket.org/dynamixwd/living-validator"
 
   gem.files         = `git ls-files`.split($/)
-  gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
-  gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
+  #gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
+  #gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
 
   gem.add_dependency 'httparty', '>= 0.9.0'

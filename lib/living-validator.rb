@@ -1,3 +1,7 @@
+# @copyright 2012 (c) Dynamix Web Design, LLC
+# @author Whit Marbut
+# @license See LICENSE file in gem file or project repository
+
 require 'rubygems'
 require 'httparty'
 require 'json'
@@ -18,6 +22,15 @@ module LivingValidator
 	# Validator class. Should be accesses statically
 	#
 	class Validator
+		
+		# Perform the validation on a given URL against the validator endpoint.
+		# Has two options `:endpoint` and `:lax_type`. The endpoint option configures where the
+		# validator instance is running. It defaults to validator.nu. The lax type option
+		# allows for lax type checking. The default for this is false. Make sure to test the
+		# result of this method for a false falue as this is the failure output.
+		# @param string url The url of the page to validate
+		# @param hash options (optional) The options to use.
+		# @return [LivingValidator::Result,boolean] Returns a result or false for failure.
 		def self.check(url, options = {})
 			# Determine the endpoint url
 			endpoint = options[:endpoint] || ENDPOINT
@@ -63,6 +76,12 @@ module LivingValidator
 			@url = url
 		end
 
+		# Declares a document valid if no error messages were raised
+		# @return boolean True for a valid document
+		def valid?
+			(self.errorCount) == 0? true : false
+		end
+
 		#
 		# Get the number of errors returned
 		# @return integer the error count
@@ -71,10 +90,23 @@ module LivingValidator
 		end
 
 		#
+		# Get the number of info messages returned
+		# @return integer the info count
+		def infoCount
+			(self.infos()).length
+		end
+
+		#
 		# Get only the error messages
 		# @return array the error messages
 		def errors
 			@messages.select{|msg| msg['type'] == 'error'}
+		end
+
+		# Get only the info messages
+		# @return array the info messages
+		def infos
+			@messages.select{|msg| msg['type'] == 'info'}
 		end
 
 		#

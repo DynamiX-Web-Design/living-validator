@@ -20,4 +20,7 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'httparty', '>= 0.9.0'
   gem.add_dependency 'json', '1.7.5'
+  
+  
+  gem.post_install_message = "Thank you for using our gem. Check us out on the web at http://www.dynamixwebdesign.com\n-The DynamiX Team"
 end

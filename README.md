@@ -16,6 +16,8 @@ The functionality here is pretty basic. You may query the validator, receive a r
 
 ##Public Instance
 
+	require 'rubygems' # Only for Ruby 1.8
+	require 'living-validator'
     result = LivingValidator::Validator.check 'http://github.com'
 	puts "There were #{result.errorCount} errors found!"
 	if result.errorCount > 0
@@ -24,6 +26,8 @@ The functionality here is pretty basic. You may query the validator, receive a r
 
 ##Private Instance
 
+	require 'rubygems' # Only for Ruby 1.8
+	require 'living-validator'
 	result = LivingValidator::Validator.check 'http://github.com', {:endpoint => 'localhost:8888'}
 	puts "There were #{result.errorCount} errors found!"
 	if result.errorCount > 0
@@ -32,6 +36,8 @@ The functionality here is pretty basic. You may query the validator, receive a r
 
 ##Lax Content-Type Checking
 
+	require 'rubygems' # Only for Ruby 1.8
+	require 'living-validator'
 	result = LivingValidator::Validator.check 'http://github.com', {:lax_type => true}
 	puts "There were #{result.errorCount} errors found!"
 	if result.errorCount > 0
@@ -40,6 +46,6 @@ The functionality here is pretty basic. You may query the validator, receive a r
 
 # License / Copyright
 
-Copyright (c) 2012 DyanmiX Web Design, LLC (http://dynamixwebdesign.com)
+Copyright (c) 2012 DynamiX Web Design, LLC (http://www.dynamixwebdesign.com)
 
 Licensed under the Creative Commons Attribution-ShareAlike 3.0 Unported. More info in the LICENSE file.
